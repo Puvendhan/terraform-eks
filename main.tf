@@ -3,6 +3,16 @@ provider "aws" {
    access_key = "AKIARN2K3DJYQCQYJCHL"
    secret_key = "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"
 }
+
+terraform {
+  backend "s3" {
+    bucket = "test-eks-bucket-for-assignment"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+  }
+}
+
+
 resource "aws_iam_role" "test-eks-iam-role" {
  name = "test-eks-iam-role"
 
