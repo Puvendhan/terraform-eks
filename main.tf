@@ -79,7 +79,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKS_CNI_Policy" {
  
 resource "aws_iam_role_policy_attachment" "EC2InstanceProfileForImageBuilderECRContainerBuilds" {
   policy_arn = "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds"
-  role    = aws_iam_role.workernodes.name
+  role    = aws_iam_role.eks-workernodes.name
 }
  
 resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
@@ -90,7 +90,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
 resource "aws_eks_node_group" "worker-node-group" {
   cluster_name  = aws_eks_cluster.puvendhan-eks.name
   node_group_name = "puvendhan-eks-workernodes"
-  node_role_arn  = aws_iam_role.workernodes.arn
+  node_role_arn  = aws_iam_role.eks-workernodes.arn
   subnet_ids   = [var.subnet_id_1, var.subnet_id_2]
   instance_types = ["t3.large"]
  scaling_config {
