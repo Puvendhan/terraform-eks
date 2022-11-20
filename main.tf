@@ -1,7 +1,7 @@
 provider "aws" {
    region = "ap-south-1"
-   access_key = "AKIA5EWN7UCKTTHFVAX5"
-   secret_key = "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"
+   access_key = "AKIARN2K3DJYQCQYJCHL"
+   secret_key = "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"
 }
 resource "aws_iam_role" "test-eks-iam-role" {
  name = "test-eks-iam-role"
